@@ -1,0 +1,189 @@
+/* ============================================================================
+   ANAYA INTERIORS - DESIGN TOKENS
+   The single source of truth. Nothing in this file produces visible output;
+   it only declares values. Every other stylesheet consumes these.
+
+   Geometry rule for this brand: everything is a rectangle. Radius is 0,
+   globally and permanently (enforced in base.css).
+   ============================================================================ */
+
+:root{
+
+  /* ------------------------------------------------------------------
+     1. CORE PALETTE - warm, earthy, single family
+     Hue family sits between 25-38° (clay / sand / espresso).
+     ------------------------------------------------------------------ */
+  --c-ink:        #241D17;  /* espresso        */
+  --c-ink-2:      #4A3E34;  /* bark            */
+  --c-ink-3:      #6E6154;  /* driftwood       */
+  --c-mocha:      #9A7B5A;  /* clay - FILL ONLY */
+  --c-mocha-tx:   #745C44;  /* clay, text-safe  */
+  --c-mocha-dp:   #6C563F;  /* deep clay - dark band / accent fill */
+  --c-brown-dk:   #55432F;  /* dark brown - primary CTA fill (white text 9.27:1) */
+  --c-sand:       #C9B49A;  /* sand - FILL ONLY */
+  --c-sand-lt:    #E6D9C4;  /* light sand, text-safe on dark */
+  --c-stone:      #E7DFD3;  /* warm grey panel */
+  --c-cream:      #F2ECE2;  /* page ground     */
+  --c-paper:      #FAF7F1;  /* lifted panel    */
+  --c-white:      #FFFDF9;  /* warm white      */
+
+  /* Status - desaturated to sit inside the warm family */
+  --c-error:      #A4442F;
+  --c-success:    #5B6B4A;
+
+  /* ------------------------------------------------------------------
+     2. SEMANTIC COLOUR ROLES
+     Use these in components, never the raw --c-* values above.
+     ------------------------------------------------------------------ */
+
+  /* Surfaces */
+  --surface:         var(--c-cream);
+  --surface-raised:  var(--c-paper);
+  --surface-sunken:  var(--c-stone);
+  --surface-invert:  var(--c-ink);
+  --surface-brand:   var(--c-mocha-dp);
+
+  /* Text on light surfaces */
+  --text:            var(--c-ink);     /* AAA on cream/paper/stone  */
+  --text-2:          var(--c-ink-2);   /* AAA - secondary copy      */
+  --text-muted:      var(--c-ink-3);   /* AA  - meta, captions      */
+  --text-accent:     var(--c-mocha-tx);/* AA  - eyebrows, links     */
+
+  /* Text on dark / brand surfaces */
+  --text-on-dark:        var(--c-white);
+  --text-on-dark-muted:  rgba(255,253,249,.74);
+  --text-on-dark-accent: var(--c-sand-lt);
+
+  /* Lines */
+  --line:        rgba(36,29,23,.16);
+  --line-soft:   rgba(36,29,23,.08);
+  --line-strong: rgba(36,29,23,.34);
+  --line-on-dark:      rgba(255,253,249,.26);
+  --line-on-dark-soft: rgba(255,253,249,.14);
+
+  /* Interaction */
+  --focus-ring: var(--c-mocha-tx);
+
+  /* ------------------------------------------------------------------
+     3. TYPOGRAPHY
+     Two families only. Serif carries voice, sans carries information.
+     ------------------------------------------------------------------ */
+  --font-display: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+  --font-sans:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --fw-light:  300;
+  --fw-reg:    400;
+  --fw-med:    500;
+
+  /* Fluid type scale - clamp(min, preferred, max) */
+  --fs-d1:    clamp(2.9rem,  8.2vw, 8.6rem);   /* hero wordmark      */
+  --fs-d2:    clamp(2.3rem,  5.6vw, 5.2rem);   /* page title         */
+  --fs-h2:    clamp(1.9rem,  4.1vw, 3.7rem);   /* section title      */
+  --fs-h3:    clamp(1.35rem, 2.1vw, 1.95rem);  /* card / sub title   */
+  --fs-h4:    clamp(1.1rem,  1.5vw, 1.3rem);   /* small heading      */
+  --fs-lead:  clamp(1.02rem, 1.3vw, 1.22rem);  /* intro paragraph    */
+  --fs-body:  clamp(.95rem,  1.03vw, 1.0625rem);
+  --fs-small: .8125rem;                        /* captions           */
+  --fs-micro: .6875rem;                        /* labels, eyebrows   */
+
+  /* Line heights */
+  --lh-tight: 1.02;
+  --lh-head:  1.14;
+  --lh-snug:  1.4;
+  --lh-body:  1.72;
+  --lh-loose: 1.8;
+
+  /* Letter spacing */
+  --ls-display: -.012em;   /* large serif tightens  */
+  --ls-body:     .005em;
+  --ls-label:    .2em;     /* uppercase micro-label */
+  --ls-eyebrow:  .24em;
+  --ls-brand:    .3em;     /* wordmark              */
+  --ls-wide:     .44em;    /* hero sub-line         */
+
+  /* ------------------------------------------------------------------
+     4. SPACE - 4px base, geometric-ish growth
+     ------------------------------------------------------------------ */
+  --sp-3xs: .25rem;   /*  4 */
+  --sp-2xs: .5rem;    /*  8 */
+  --sp-xs:  .75rem;   /* 12 */
+  --sp-sm:  1rem;     /* 16 */
+  --sp-md:  1.5rem;   /* 24 */
+  --sp-lg:  2rem;     /* 32 */
+  --sp-xl:  3rem;     /* 48 */
+  --sp-2xl: 4rem;     /* 64 */
+  --sp-3xl: 6rem;     /* 96 */
+  --sp-4xl: 8rem;     /* 128 */
+
+  /* Fluid rhythm */
+  --gutter:  clamp(1.25rem, 4.4vw, 4.5rem);  /* page side padding  */
+  --section: clamp(4.5rem, 11vw, 11rem);     /* section padding-block */
+  --gap-grid: clamp(.6rem, 1.1vw, 1.1rem);   /* tight image grid   */
+  --gap-col:  clamp(2rem, 5vw, 5rem);        /* editorial columns  */
+
+  --maxw:      1680px;   /* outer shell       */
+  --maxw-text: 68ch;     /* readable measure  */
+
+  /* ------------------------------------------------------------------
+     5. GEOMETRY - rectangles only
+     ------------------------------------------------------------------ */
+  --radius: 0;
+  --bw:     1px;        /* hairline, the brand's primary divider */
+  --bw-2:   2px;
+
+  /* Aspect ratios used across the system */
+  --ar-portrait:  3 / 4;
+  --ar-tall:      2 / 3;
+  --ar-card:      4 / 5;
+  --ar-square:    1 / 1;
+  --ar-landscape: 4 / 3;
+  --ar-wide:      16 / 9;
+
+  /* ------------------------------------------------------------------
+     6. ELEVATION - used sparingly; the brand reads flat
+     ------------------------------------------------------------------ */
+  --shadow-none: none;
+  --shadow-sm:   0 2px 14px rgba(36,29,23,.06);
+  --shadow-md:   0 10px 40px rgba(36,29,23,.12);
+  --shadow-lg:   0 24px 70px rgba(36,29,23,.18);
+
+  /* ------------------------------------------------------------------
+     7. MOTION
+     One easing for almost everything; slow and weighted, never bouncy.
+     ------------------------------------------------------------------ */
+  --ease:     cubic-bezier(.22, 1, .36, 1);     /* decelerate, signature */
+  --ease-io:  cubic-bezier(.65, .05, .36, 1);   /* in-out, for loops     */
+  --ease-in:  cubic-bezier(.55, .06, .68, .19);
+
+  --dur-fast: .3s;
+  --dur-mid:  .5s;
+  --dur-slow: .72s;
+  --dur-xslow: 1.1s;   /* image clip reveals */
+
+  /* ------------------------------------------------------------------
+     8. LAYERS
+     ------------------------------------------------------------------ */
+  --z-base:    1;
+  --z-raised:  10;
+  --z-sticky:  80;
+  --z-float:   90;
+  --z-overlay: 110;
+  --z-header:  120;
+  --z-cursor:  200;
+  --z-loader:  300;
+
+  /* Component sizing */
+  --nav-h:        86px;
+  --nav-h-stuck:  72px;
+  --tap:          44px;   /* minimum touch target */
+}
+
+/* Breakpoints are documented here for reference - CSS custom properties
+   cannot be used in media queries, so these values are repeated literally:
+
+   --bp-sm:   560px    larger phones
+   --bp-md:   768px    tablet portrait
+   --bp-lg:   900px    tablet landscape / small laptop
+   --bp-xl:  1100px    desktop - full navigation appears
+   --bp-2xl: 1400px    wide desktop
+*/

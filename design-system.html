@@ -1,0 +1,939 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design System | Anaya Interiors</title>
+<meta name="description" content="Foundations and components for the Anaya Interiors website.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/design-system.css">
+</head>
+<body style="background:var(--c-paper)">
+
+<header class="ds-top">
+  <div class="wordmark" style="text-align:left">
+    <span class="wordmark__name">Anaya</span>
+    <span class="wordmark__sub">Design System</span>
+  </div>
+  <div class="ds-top__meta">
+    <span>v1.0</span>
+    <span>Rectangles only</span>
+    <span>WCAG AA</span>
+  </div>
+</header>
+
+<div class="ds-layout">
+
+  <!-- ============ TOC ============ -->
+  <aside class="ds-nav">
+    <h4>Foundations</h4>
+    <a href="#principles">Principles</a>
+    <a href="#colour">Colour</a>
+    <a href="#contrast">Contrast matrix</a>
+    <a href="#type">Typography</a>
+    <a href="#space">Space &amp; layout</a>
+    <a href="#geometry">Geometry</a>
+    <a href="#elevation">Elevation</a>
+    <a href="#motion">Motion</a>
+    <h4>Components</h4>
+    <a href="#buttons">Buttons</a>
+    <a href="#links">Links</a>
+    <a href="#tags">Tags &amp; chips</a>
+    <a href="#forms">Form controls</a>
+    <a href="#frames">Image frames</a>
+    <a href="#cards">Media cards</a>
+    <a href="#rows">Service rows</a>
+    <a href="#feats">Features &amp; stats</a>
+    <a href="#quotes">Testimonials</a>
+    <a href="#marquee">Marquee</a>
+    <a href="#nav">Header &amp; menu</a>
+    <a href="#footer">Footer</a>
+    <a href="#float">Floating actions</a>
+    <h4>Practice</h4>
+    <a href="#motion-rv">Reveal patterns</a>
+    <a href="#a11y">Accessibility</a>
+  </aside>
+
+  <main class="ds-main">
+
+    <!-- ============ PRINCIPLES ============ -->
+    <section class="ds-sec" id="principles">
+      <div class="ds-sec__head">
+        <span class="eyebrow">01 / Foundations</span>
+        <h1 class="t-d2" style="margin-top:var(--sp-sm)">Principles</h1>
+        <p>Five rules that decide every judgement call below. When a choice is ambiguous, the rule wins.</p>
+      </div>
+      <div class="ds-rules">
+        <div class="ds-rule ds-rule--do">
+          <h5>The system holds</h5>
+          <ul>
+            <li><b>Everything is a rectangle.</b> Radius is forced to 0 globally. Buttons, images, inputs, avatars and tags are all square-cornered. This is the brand's strongest signature.</li>
+            <li><b>The hairline is the divider.</b> A 1px warm-black rule at 16% opacity separates content. Boxes and shadows are a last resort.</li>
+            <li><b>Two typefaces, no more.</b> A light display serif carries voice; a neutral sans carries information.</li>
+            <li><b>Warmth is non-negotiable.</b> Every neutral is warm-biased. No pure black, no pure white, no cool grey.</li>
+            <li><b>Space is the luxury.</b> Generous negative space does the work that decoration would otherwise do.</li>
+          </ul>
+        </div>
+        <div class="ds-rule ds-rule--dont">
+          <h5>What breaks it</h5>
+          <ul>
+            <li>Rounded corners or circular crops anywhere, including avatars and icon buttons.</li>
+            <li>A second accent hue. The clay family is the only colour; photography supplies the rest.</li>
+            <li>Drop shadows used for decoration rather than for genuinely floating UI.</li>
+            <li>Body text set in the display serif, or headings set in the sans.</li>
+            <li>Ungraded photography. Mixed stock must pass through the warm grade to read as one world.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COLOUR ============ -->
+    <section class="ds-sec" id="colour">
+      <div class="ds-sec__head">
+        <span class="eyebrow">02 / Foundations</span>
+        <h2 class="t-d2" style="margin-top:var(--sp-sm)">Colour</h2>
+        <p>One hue family, 25-38°, from espresso to warm white. Two tokens are <b>fill-only</b> and must never carry small text. The contrast matrix below shows why.</p>
+      </div>
+
+      <div class="ds-block">
+        <h3 class="ds-block__t">Core palette</h3>
+        <div class="ds-sw-grid" id="swatches"></div>
+      </div>
+
+      <div class="ds-block">
+        <h3 class="ds-block__t">Semantic roles: use these in components</h3>
+        <table class="ds-table">
+          <thead><tr><th>Role</th><th>Maps to</th><th>Used for</th></tr></thead>
+          <tbody>
+            <tr><td><code>--surface</code></td><td>cream</td><td>Default page ground</td></tr>
+            <tr><td><code>--surface-raised</code></td><td>paper</td><td>Cards, forms, lifted panels</td></tr>
+            <tr><td><code>--surface-sunken</code></td><td>stone</td><td>Inset panels, image placeholders</td></tr>
+            <tr><td><code>--surface-invert</code></td><td>ink</td><td>Footer, dark CTA bands</td></tr>
+            <tr><td><code>--surface-brand</code></td><td>deep clay</td><td>The brown feature band</td></tr>
+            <tr><td><code>--text</code></td><td>ink</td><td>Primary copy and headings</td></tr>
+            <tr><td><code>--text-2</code></td><td>bark</td><td>Lead paragraphs, secondary copy</td></tr>
+            <tr><td><code>--text-muted</code></td><td>driftwood</td><td>Captions, meta, labels</td></tr>
+            <tr><td><code>--text-accent</code></td><td>clay, text-safe</td><td>Eyebrows, links, numerals</td></tr>
+          </tbody>
+        </table>
+        <p class="t-small u-mt-md">Dark surfaces (<code>.section--invert</code>, <code>.section--brand</code>, <code>.on-dark</code>) remap these roles automatically, so a component dropped onto a dark band re-skins itself without a variant class.</p>
+      </div>
+
+      <div class="ds-block">
+        <h3 class="ds-block__t">Surface stack</h3>
+        <div class="ds-row" style="gap:0">
+          <div style="flex:1;min-width:120px;background:var(--c-cream);padding:var(--sp-lg) var(--sp-sm);text-align:center"><span class="t-micro">Cream</span></div>
+          <div style="flex:1;min-width:120px;background:var(--c-paper);padding:var(--sp-lg) var(--sp-sm);text-align:center"><span class="t-micro">Paper</span></div>
+          <div style="flex:1;min-width:120px;background:var(--c-stone);padding:var(--sp-lg) var(--sp-sm);text-align:center"><span class="t-micro">Stone</span></div>
+          <div style="flex:1;min-width:120px;background:var(--c-mocha-dp);padding:var(--sp-lg) var(--sp-sm);text-align:center;color:var(--c-white)"><span class="t-micro">Deep clay</span></div>
+          <div style="flex:1;min-width:120px;background:var(--c-ink);padding:var(--sp-lg) var(--sp-sm);text-align:center;color:var(--c-white)"><span class="t-micro">Ink</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTRAST ============ -->
+    <section class="ds-sec" id="contrast">
+      <div class="ds-sec__head">
+        <span class="eyebrow">03 / Foundations</span>
+        <h2 class="t-d2" style="margin-top:var(--sp-sm)">Contrast matrix</h2>
+        <p>Computed live from the tokens in this page. Every pairing the site actually uses must reach 4.5:1. Pairings marked <b>fill-only</b> are deliberately excluded from text use.</p>
+      </div>
+      <table class="ds-table" id="contrast-table">
+        <thead><tr><th>Foreground</th><th>Background</th><th>Ratio</th><th>Grade</th><th>Specimen</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p class="t-small u-mt-md"><b>Fill-only tokens.</b> <code>--c-mocha</code> (#9A7B5A) and <code>--c-sand</code> (#C9B49A) are reserved for solid shapes, rules and square accents. Small text on them lands around 4.2:1, below AA, so text-safe siblings <code>--c-mocha-tx</code> and <code>--c-sand-lt</code> exist for that purpose.</p>
+    </section>
+
+    <!-- ============ TYPE ============ -->
+    <section class="ds-sec" id="type">
+      <div class="ds-sec__head">
+        <span class="eyebrow">04 / Foundations</span>
+        <h2 class="t-d2" style="margin-top:var(--sp-sm)">Typography</h2>
+        <p>Cormorant Garamond at weight 300 for voice; Inter for information. The serif is never used below 1.1rem, and the sans is never used above 1.3rem.</p>
+      </div>
+
+      <div class="ds-block">
+        <h3 class="ds-block__t">Scale</h3>
+        <div class="ds-stage">
+          <div class="ds-spec">
+            <div class="ds-spec__meta"><span>.t-d1</span><span>--fs-d1</span><span>clamp(2.9rem, 8.2vw, 8.6rem)</span><span>300</span></div>
+            <div class="t-d1" style="letter-spacing:.055em;text-transform:uppercase">Anaya</div>
+          </div>
+          <div class="ds-spec">
+            <div class="ds-spec__meta"><span>.t-d2</span><span>--fs-d2</span><span>clamp(2.3rem, 5.6vw, 5.2rem)</span><span>300</span></div>
+            <div class="t-d2">Interiors made to be lived in</div>
+          </div>
+          <div class="ds-spec">
+            <div class="ds-spec__meta"><span>.t-h2</span><span>--fs-h2</span><span>clamp(1.9rem, 4.1vw, 3.7rem)</span><span>300</span></div>
+            <div class="t-h2">A considered <em>approach</em> to every room</div>
+          </div>
+          <div class="ds-spec">
+            <div class="ds-spec__meta"><span>.t-h3</span><span>--fs-h3</span><span>clamp(1.35rem, 2.1vw, 1.95rem)</span><span>400</span></div>
+            <div class="t-h3">Modular kitchen design</div>
+          </div>
+          <div class="ds-spec">
+            <div class="ds-spec__meta"><span>.t-h4</span><span>--fs-h4</span><span>clamp(1.1rem, 1.5vw, 1.3rem)</span><span>400</span></div>
+            <div class="t-h4">Transparent, itemised pricing</div>
+          </div>
+          <div class="ds-spec">
+            <div class="ds-spec__meta"><span>.t-lead</span><span>--fs-lead</span><span>Inter 400</span><span>1.8</span></div>
+            <p class="t-lead t-measure">We design interiors that hold up to daily life: considered proportions, honest materials, and detailing that still reads well after ten years of use.</p>
+          </div>
+          <div class="ds-spec">
+            <div class="ds-spec__meta"><span>.t-body</span><span>--fs-body</span><span>Inter 400</span><span>1.72</span></div>
+            <p class="t-measure">Each project begins with a measured survey of the space and an honest conversation about budget. From there we develop layouts, elevations and material palettes, and we do not begin production until every line item has been approved in writing.</p>
+          </div>
+          <div class="ds-spec">
+            <div class="ds-spec__meta"><span>.t-small</span><span>--fs-small</span><span>Inter 400</span><span>13px</span></div>
+            <p class="t-small t-measure">Completed in 11 weeks. 1,450 sq ft, three bedrooms, full turnkey scope including false ceiling and electrical.</p>
+          </div>
+          <div class="ds-spec">
+            <div class="ds-spec__meta"><span>.t-micro</span><span>--fs-micro</span><span>Inter 500</span><span>11px / .2em</span></div>
+            <span class="t-micro">Explore the portfolio</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-block">
+        <h3 class="ds-block__t">Labels &amp; wordmark</h3>
+        <div class="ds-stage ds-row" style="gap:var(--sp-xl)">
+          <span class="eyebrow">Our services</span>
+          <span class="eyebrow eyebrow--bare">No rule variant</span>
+          <div class="wordmark"><span class="wordmark__name">Anaya</span><span class="wordmark__sub">Interior Studio</span></div>
+        </div>
+        <div class="ds-stage ds-stage--ink ds-row on-dark" style="gap:var(--sp-xl)">
+          <span class="eyebrow">On dark ground</span>
+          <div class="wordmark" style="color:var(--c-white)"><span class="wordmark__name">Anaya</span><span class="wordmark__sub">Interior Studio</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SPACE ============ -->
+    <section class="ds-sec" id="space">
+      <div class="ds-sec__head">
+        <span class="eyebrow">05 / Foundations</span>
+        <h2 class="t-d2" style="margin-top:var(--sp-sm)">Space &amp; layout</h2>
+        <p>A 4px base scale for components; fluid <code>clamp()</code> values for page rhythm so the layout breathes rather than stepping at breakpoints.</p>
+      </div>
+
+      <div class="ds-block">
+        <h3 class="ds-block__t">Spacing scale</h3>
+        <div class="ds-stage"><div class="ds-scale" id="scale"></div></div>
+      </div>
+
+      <div class="ds-block">
+        <h3 class="ds-block__t">Fluid rhythm</h3>
+        <table class="ds-table">
+          <thead><tr><th>Token</th><th>Value</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td><code>--gutter</code></td><td>clamp(1.25rem, 4.4vw, 4.5rem)</td><td>Page side padding, never less than 20px on phones</td></tr>
+            <tr><td><code>--section</code></td><td>clamp(4.5rem, 11vw, 11rem)</td><td>Vertical padding on every section band</td></tr>
+            <tr><td><code>--gap-grid</code></td><td>clamp(.6rem, 1.1vw, 1.1rem)</td><td>Tight gap for image grids</td></tr>
+            <tr><td><code>--gap-col</code></td><td>clamp(2rem, 5vw, 5rem)</td><td>Editorial column gap</td></tr>
+            <tr><td><code>--maxw</code></td><td>1680px</td><td>Outer shell</td></tr>
+            <tr><td><code>--maxw-text</code></td><td>68ch</td><td>Readable measure for body copy</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ds-block">
+        <h3 class="ds-block__t">Breakpoints</h3>
+        <table class="ds-table">
+          <thead><tr><th>Name</th><th>Min width</th><th>What changes</th></tr></thead>
+          <tbody>
+            <tr><td>sm</td><td>560px</td><td>Two-column form rows; WhatsApp label appears</td></tr>
+            <tr><td>md</td><td>768px</td><td>Stats move toward four across</td></tr>
+            <tr><td>lg</td><td>900px</td><td>Editorial splits go side-by-side; service rows gain hover preview</td></tr>
+            <tr><td>xl</td><td>1100px</td><td>Full navigation replaces the burger menu</td></tr>
+            <tr><td>2xl</td><td>1400px</td><td>Shell approaches its 1680px ceiling</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ds-block">
+        <h3 class="ds-block__t">Grid: <code>.grid--3</code></h3>
+        <div class="ds-stage ds-stage--cream">
+          <div class="grid grid--3">
+            <div style="background:var(--c-stone);padding:var(--sp-lg);text-align:center" class="t-micro">Column</div>
+            <div style="background:var(--c-stone);padding:var(--sp-lg);text-align:center" class="t-micro">Column</div>
+            <div style="background:var(--c-stone);padding:var(--sp-lg);text-align:center" class="t-micro">Column</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GEOMETRY ============ -->
+    <section class="ds-sec" id="geometry">
+      <div class="ds-sec__head">
+        <span class="eyebrow">06 / Foundations</span>
+        <h2 class="t-d2" style="margin-top:var(--sp-sm)">Geometry</h2>
+        <p>Radius is set to <code>0</code> with <code>!important</code> on the universal selector. Nothing in the system can opt out, and that is intentional.</p>
+      </div>
+      <div class="ds-block">
+        <h3 class="ds-block__t">Aspect ratios</h3>
+        <div class="ds-stage">
+          <div class="grid grid--4">
+            <figure><div class="frame frame--square" style="background:var(--c-sand)"></div><figcaption class="caption"><span>Square</span><span>1:1</span></figcaption></figure>
+            <figure><div class="frame frame--portrait" style="background:var(--c-sand)"></div><figcaption class="caption"><span>Portrait</span><span>3:4</span></figcaption></figure>
+            <figure><div class="frame frame--card" style="background:var(--c-sand)"></div><figcaption class="caption"><span>Card</span><span>4:5</span></figcaption></figure>
+            <figure><div class="frame frame--tall" style="background:var(--c-sand)"></div><figcaption class="caption"><span>Tall</span><span>2:3</span></figcaption></figure>
+          </div>
+        </div>
+      </div>
+      <div class="ds-block">
+        <h3 class="ds-block__t">Rules &amp; marks</h3>
+        <div class="ds-stage">
+          <hr class="rule"><p class="t-small u-mt-sm"><code>.rule</code>: 1px at 16%, the default divider</p>
+          <hr class="rule rule--strong u-mt-md"><p class="t-small u-mt-sm"><code>.rule--strong</code>: 34%, for emphasis only</p>
+          <p class="u-mt-md t-small"><span class="sq"></span> <code>.sq</code> and <span class="sq sq--lg"></span> <code>.sq--lg</code>: the recurring square mark</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ELEVATION ============ -->
+    <section class="ds-sec" id="elevation">
+      <div class="ds-sec__head">
+        <span class="eyebrow">07 / Foundations</span>
+        <h2 class="t-d2" style="margin-top:var(--sp-sm)">Elevation</h2>
+        <p>The brand reads flat. Shadows exist for genuinely floating UI only: the WhatsApp button and the overlay menu. Never for decoration.</p>
+      </div>
+      <div class="ds-stage ds-stage--cream">
+        <div class="ds-row" style="gap:var(--sp-md)">
+          <div style="background:var(--c-white);padding:var(--sp-md);box-shadow:var(--shadow-none);border:var(--bw) solid var(--line-soft)"><span class="t-micro">None</span></div>
+          <div style="background:var(--c-white);padding:var(--sp-md);box-shadow:var(--shadow-sm)"><span class="t-micro">Small</span></div>
+          <div style="background:var(--c-white);padding:var(--sp-md);box-shadow:var(--shadow-md)"><span class="t-micro">Medium</span></div>
+          <div style="background:var(--c-white);padding:var(--sp-md);box-shadow:var(--shadow-lg)"><span class="t-micro">Large</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MOTION ============ -->
+    <section class="ds-sec" id="motion">
+      <div class="ds-sec__head">
+        <span class="eyebrow">08 / Foundations</span>
+        <h2 class="t-d2" style="margin-top:var(--sp-sm)">Motion</h2>
+        <p>One signature easing does almost everything: a long decelerating curve that feels weighted rather than springy. Hover any track below.</p>
+      </div>
+      <div class="ds-ease">
+        <div class="ds-ease__cell">
+          <span class="t-micro">--ease</span>
+          <p class="t-small">cubic-bezier(.22, 1, .36, 1)</p>
+          <div class="ds-ease__track"><i class="ds-ease__dot" style="transition-timing-function:cubic-bezier(.22,1,.36,1)"></i></div>
+        </div>
+        <div class="ds-ease__cell">
+          <span class="t-micro">--ease-io</span>
+          <p class="t-small">cubic-bezier(.65, .05, .36, 1)</p>
+          <div class="ds-ease__track"><i class="ds-ease__dot" style="transition-timing-function:cubic-bezier(.65,.05,.36,1)"></i></div>
+        </div>
+        <div class="ds-ease__cell">
+          <span class="t-micro">--ease-in</span>
+          <p class="t-small">cubic-bezier(.55, .06, .68, .19)</p>
+          <div class="ds-ease__track"><i class="ds-ease__dot" style="transition-timing-function:cubic-bezier(.55,.06,.68,.19)"></i></div>
+        </div>
+      </div>
+      <table class="ds-table u-mt-md">
+        <thead><tr><th>Token</th><th>Duration</th><th>Applied to</th></tr></thead>
+        <tbody>
+          <tr><td><code>--dur-fast</code></td><td>300ms</td><td>Colour and opacity changes</td></tr>
+          <tr><td><code>--dur-mid</code></td><td>500ms</td><td>Button fills, nav underlines, arrows</td></tr>
+          <tr><td><code>--dur-slow</code></td><td>720ms</td><td>Panel and menu transitions</td></tr>
+          <tr><td><code>--dur-xslow</code></td><td>1100ms</td><td>Image clip reveals on scroll</td></tr>
+        </tbody>
+      </table>
+      <p class="t-small u-mt-md"><b>Reduced motion.</b> <code>prefers-reduced-motion: reduce</code> collapses every duration to ~0ms, stops the marquee, and forces all reveal states to their final appearance. No content is ever hidden behind an animation.</p>
+    </section>
+
+    <!-- ============ BUTTONS ============ -->
+    <section class="ds-sec" id="buttons">
+      <div class="ds-sec__head">
+        <span class="eyebrow">09 / Components</span>
+        <h2 class="t-d2" style="margin-top:var(--sp-sm)">Buttons</h2>
+        <p>A fill wipes up from the bottom edge on hover. Minimum height 54px (44px for small), so every button clears the touch target floor. Hover each to see the wipe.</p>
+      </div>
+      <div class="ds-block">
+        <h3 class="ds-block__t">Variants on light ground</h3>
+        <div class="ds-stage ds-stage--cream">
+          <div class="ds-row">
+            <a href="#buttons" class="btn"><span>Outline</span></a>
+            <a href="#buttons" class="btn btn--solid"><span>Solid</span></a>
+            <a href="#buttons" class="btn btn--accent"><span>Accent</span></a>
+            <a href="#buttons" class="btn"><span>With arrow</span><svg class="arw" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="ds-block">
+        <h3 class="ds-block__t">Variants on dark ground</h3>
+        <div class="ds-stage ds-stage--ink on-dark">
+          <div class="ds-row">
+            <a href="#buttons" class="btn btn--ghost"><span>Ghost</span></a>
+            <a href="#buttons" class="btn btn--accent"><span>Accent</span></a>
+          </div>
+        </div>
+        <div class="ds-stage ds-stage--brand on-dark">
+          <div class="ds-row">
+            <a href="#buttons" class="btn btn--ghost"><span>Ghost on clay</span></a>
+            <a href="#buttons" class="btn btn--solid"><span>Solid on clay</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="ds-block">
+        <h3 class="ds-block__t">Sizes &amp; states</h3>
+        <div class="ds-stage ds-stage--cream">
+          <div class="ds-row">
+            <a href="#buttons" class="btn btn--sm"><span>Small</span></a>
+            <a href="#buttons" class="btn"><span>Default</span></a>
+            <a href="#buttons" class="btn btn--lg"><span>Large</span></a>
+            <button class="btn" disabled><span>Disabled</span></button>
+          </div>
+          <div style="max-width:320px;margin-top:var(--sp-sm)">
+            <a href="#buttons" class="btn btn--solid btn--block"><span>Block</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="ds-block">
+        <h3 class="ds-block__t">Icon buttons</h3>
+        <div class="ds-stage ds-stage--cream">
+          <div class="ds-row">
+            <button class="ibtn" aria-label="Previous"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 2L4 8l6 6" stroke="currentColor" stroke-width="1.2"/></svg></button>
+            <button class="ibtn" aria-label="Next"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 2l6 6-6 6" stroke="currentColor" stroke-width="1.2"/></svg></button>
+            <button class="ibtn ibtn--sm" aria-label="Close"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.2"/></svg></button>
+            <button class="ibtn" aria-label="Disabled" disabled><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 2l6 6-6 6" stroke="currentColor" stroke-width="1.2"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LINKS ============ -->
+    <section class="ds-sec" id="links">
+      <div class="ds-sec__head">
+        <span class="eyebrow">10 / Components</span>
+        <h2 class="t-d2" style="margin-top:var(--sp-sm)">Links</h2>
+        <p>The underline is present by default and retracts to the right on hover, the reverse of the usual convention, and quieter for it.</p>
+      </div>
+      <div class="ds-stage ds-stage--cream">
+        <div class="ds-row" style="gap:var(--sp-xl)">
+          <a href="#links" class="link"><span>View all projects</span><svg class="arw" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg></a>
+          <a href="#links" class="link link--accent"><span>Accent link</span></a>
+        </div>
+        <p class="u-mt-md t-measure">An inline <a href="#links" class="link-inline">prose link</a> sits inside running copy and uses the text-safe clay so it still reaches AA at body size.</p>
+      </div>
+    </section>
+
+    <!-- ============ TAGS ============ -->
+    <section class="ds-sec" id="tags">
+      <div class="ds-sec__head">
+        <span class="eyebrow">11 / Components</span>
+        <h2 class="t-d2" style="margin-top:var(--sp-sm)">Tags &amp; chips</h2>
+        <p>Tags label; chips filter. Chips report state through <code>aria-pressed</code> so screen readers hear the selection, not just see it.</p>
+      </div>
+      <div class="ds-stage ds-stage--cream">
+        <div class="ds-row">
+          <span class="tag">Default</span>
+          <span class="tag tag--solid">Solid</span>
+          <span class="tag tag--accent">Accent</span>
+          <span class="tag tag--light">Light</span>
+        </div>
+        <div class="ds-row u-mt-md">
+          <button class="chip" aria-pressed="true">All work</button>
+          <button class="chip" aria-pressed="false">Kitchen</button>
+          <button class="chip" aria-pressed="false">Bedroom</button>
+          <button class="chip" aria-pressed="false">Living room</button>
+          <button class="chip" aria-pressed="false">Wardrobes</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FORMS ============ -->
+    <section class="ds-sec" id="forms">
+      <div class="ds-sec__head">
+        <span class="eyebrow">12 / Components</span>
+        <h2 class="t-d2" style="margin-top:var(--sp-sm)">Form controls</h2>
+        <p>Every field has a visible label. Placeholders are never the only label. Errors are announced in text beside the field, not by colour alone. Checkboxes are square, like everything else.</p>
+      </div>
+      <div class="ds-stage ds-stage--cream ds-stage--flush">
+        <form class="form" novalidate>
+          <div class="form__alert is-on">This is the confirmation message shown after a successful enquiry.</div>
+          <div class="form-row form-row--2">
+            <div class="field">
+              <label for="ds-n">Full name <span class="req">*</span></label>
+              <input class="input" id="ds-n" type="text" placeholder="Your name">
+              <span class="field__err"></span>
+            </div>
+            <div class="field">
+              <label for="ds-p">Phone <span class="req">*</span></label>
+              <input class="input" id="ds-p" type="tel" placeholder="10-digit mobile">
+              <span class="field__err"></span>
+            </div>
+          </div>
+          <div class="field is-invalid">
+            <label for="ds-e">Email (error state)</label>
+            <input class="input" id="ds-e" type="email" value="not-an-email" aria-invalid="true" aria-describedby="ds-e-err">
+            <span class="field__err" id="ds-e-err">Enter a valid email address.</span>
+          </div>
+          <div class="field">
+            <label for="ds-s">Service required</label>
+            <select class="select" id="ds-s">
+              <option>Modular kitchen</option>
+              <option>Bedroom</option>
+              <option>Complete interiors</option>
+            </select>
+            <span class="field__err"></span>
+          </div>
+          <div class="field">
+            <label for="ds-m">Message</label>
+            <textarea class="textarea" id="ds-m" placeholder="Tell us about your space"></textarea>
+            <span class="field__err"></span>
+          </div>
+          <label class="check"><input type="checkbox" checked><span>Send me a copy of the design brief by WhatsApp.</span></label>
+          <div class="u-mt-md"><button type="button" class="btn btn--solid btn--block"><span>Send enquiry</span></button></div>
+          <p class="form__note">We reply within one working day. Your details are never shared.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ FRAMES ============ -->
+    <section class="ds-sec" id="frames">
+      <div class="ds-sec__head">
+        <span class="eyebrow">13 / Components</span>
+        <h2 class="t-d2" style="margin-top:var(--sp-sm)">Image frames</h2>
+        <p>Every photograph passes through one warm grade, <code>saturate(.84) contrast(1.03) sepia(.08)</code>, so stock from different shoots reads as a single commissioned set. Hover for the zoom.</p>
+      </div>
+      <div class="ds-stage ds-stage--cream">
+        <div class="grid grid--3">
+          <figure>
+            <div class="frame frame--card zoom"><img src="assets/img/svc-bedroom.jpg" alt="Bedroom with upholstered headboard in warm neutral tones" loading="lazy"></div>
+            <figcaption class="caption"><span>Graded</span><span>4:5</span></figcaption>
+          </figure>
+          <figure>
+            <div class="frame frame--card zoom"><img src="assets/img/svc-kitchen.jpg" alt="Kitchen counter with timber backsplash" loading="lazy"></div>
+            <figcaption class="caption"><span>Graded</span><span>4:5</span></figcaption>
+          </figure>
+          <figure>
+            <div class="frame frame--card zoom"><img src="assets/img/svc-living.jpg" alt="Living room sofa styled with cushions and a low table" loading="lazy"></div>
+            <figcaption class="caption"><span>Graded</span><span>4:5</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CARDS ============ -->
+    <section class="ds-sec" id="cards">
+      <div class="ds-sec__head">
+        <span class="eyebrow">14 / Components</span>
+        <h2 class="t-d2" style="margin-top:var(--sp-sm)">Media cards</h2>
+        <p>Used for projects and gallery items. The square tab drops in from the top edge on hover: a rectangle sliding over a rectangle, in keeping with the geometry rule.</p>
+      </div>
+      <div class="ds-stage ds-stage--cream">
+        <div class="grid grid--3">
+          <a href="#cards" class="mcard">
+            <div class="frame frame--card zoom"><img src="assets/img/proj-fluted-suite.jpg" alt="Master bedroom with fluted timber headboard" loading="lazy"></div>
+            <span class="mcard__tab">View</span>
+            <div class="mcard__ov">
+              <span class="mcard__cat">Bedroom</span>
+              <h3 class="mcard__t">The Fluted Suite</h3>
+              <p class="mcard__m">3 BHK · 1,450 sq ft</p>
+            </div>
+          </a>
+          <a href="#cards" class="mcard">
+            <div class="frame frame--card zoom"><img src="assets/img/proj-graphite-oak.jpg" alt="Kitchen island with dark cabinetry" loading="lazy"></div>
+            <span class="mcard__tab">View</span>
+            <div class="mcard__ov">
+              <span class="mcard__cat">Modular kitchen</span>
+              <h3 class="mcard__t">Graphite &amp; Oak</h3>
+              <p class="mcard__m">Island layout · 210 sq ft</p>
+            </div>
+          </a>
+          <a href="#cards" class="mcard">
+            <div class="frame frame--card zoom"><img src="assets/img/proj-slat-house.jpg" alt="Bedroom with slatted timber wall panelling" loading="lazy"></div>
+            <span class="mcard__tab">View</span>
+            <div class="mcard__ov">
+              <span class="mcard__cat">Complete interiors</span>
+              <h3 class="mcard__t">Slat House</h3>
+              <p class="mcard__m">4 BHK · 2,100 sq ft</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ROWS ============ -->
+    <section class="ds-sec" id="rows">
+      <div class="ds-sec__head">
+        <span class="eyebrow">15 / Components</span>
+        <h2 class="t-d2" style="margin-top:var(--sp-sm)">Service rows</h2>
+        <p>An editorial list rather than a card grid. On a fine pointer the whole row inverts to ink and a preview image tracks the cursor; on touch the row shows an inline thumbnail instead.</p>
+      </div>
+      <div class="ds-stage ds-stage--cream">
+        <ul class="srow-list">
+          <li><a class="srow" href="#rows" data-preview="assets/img/svc-kitchen.jpg">
+            <span class="srow__n">01</span>
+            <span><span class="srow__t">Modular Kitchen</span><span class="srow__d">Ergonomic layouts, soft-close hardware and finishes chosen to survive daily cooking.</span></span>
+            <span class="srow__go"><svg class="arw" width="15" height="15" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg></span>
+          </a></li>
+          <li><a class="srow" href="#rows" data-preview="assets/img/svc-bedroom.jpg">
+            <span class="srow__n">02</span>
+            <span><span class="srow__t">Bedroom</span><span class="srow__d">Restful palettes, considered storage and lighting layered for evening use.</span></span>
+            <span class="srow__go"><svg class="arw" width="15" height="15" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg></span>
+          </a></li>
+          <li><a class="srow" href="#rows" data-preview="assets/img/svc-tv-unit.jpg">
+            <span class="srow__n">03</span>
+            <span><span class="srow__t">TV Units</span><span class="srow__d">Media walls that hide the cabling and still look composed when switched off.</span></span>
+            <span class="srow__go"><svg class="arw" width="15" height="15" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg></span>
+          </a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES / STATS ============ -->
+    <section class="ds-sec" id="feats">
+      <div class="ds-sec__head">
+        <span class="eyebrow">16 / Components</span>
+        <h2 class="t-d2" style="margin-top:var(--sp-sm)">Features &amp; stats</h2>
+        <p>Both are built from hairlines and numerals only. Shown here on the clay band to demonstrate automatic re-skinning on dark surfaces.</p>
+      </div>
+      <div class="ds-stage ds-stage--brand on-dark">
+        <div class="feat"><span class="feat__n">01</span><span><span class="feat__t">Fixed-price contracts</span><span class="feat__d">Every line item priced before work begins, with no revision mid-project.</span></span></div>
+        <div class="feat"><span class="feat__n">02</span><span><span class="feat__t">In-house production</span><span class="feat__d">Our own factory, so quality control does not depend on a third party.</span></span></div>
+      </div>
+      <div class="ds-stage ds-stage--cream u-mt-md">
+        <div class="stats">
+          <div class="stat"><div class="stat__n" >12<sup>+</sup></div><div class="stat__l">Years practising</div></div>
+          <div class="stat"><div class="stat__n">480<sup>+</sup></div><div class="stat__l">Homes delivered</div></div>
+          <div class="stat"><div class="stat__n">9</div><div class="stat__l">Cities served</div></div>
+          <div class="stat"><div class="stat__n">96<sup>%</sup></div><div class="stat__l">On-time handover</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ QUOTES ============ -->
+    <section class="ds-sec" id="quotes">
+      <div class="ds-sec__head">
+        <span class="eyebrow">17 / Components</span>
+        <h2 class="t-d2" style="margin-top:var(--sp-sm)">Testimonials</h2>
+        <p>Square initial blocks instead of circular avatars, and instead of mismatched stock portraits, which would undermine the photography.</p>
+      </div>
+      <div class="ds-stage ds-stage--cream">
+        <div class="grid grid--2">
+          <article class="quote-card">
+            <div class="stars" aria-label="Rated 5 out of 5">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+            </div>
+            <blockquote class="quote-card__q">They took a narrow, awkward kitchen and made it feel twice the size. The handover was three days early.</blockquote>
+            <div class="quote-card__who">
+              <span class="avatar-sq" aria-hidden="true">RM</span>
+              <span><span class="quote-card__nm">Rohit Menon</span><span class="quote-card__loc">Whitefield</span></span>
+            </div>
+          </article>
+          <article class="quote-card">
+            <div class="stars" aria-label="Rated 5 out of 5">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+            </div>
+            <blockquote class="quote-card__q">What I valued most was the honesty about budget. Nothing was quietly added later.</blockquote>
+            <div class="quote-card__who">
+              <span class="avatar-sq" aria-hidden="true">SK</span>
+              <span><span class="quote-card__nm">Sneha Kulkarni</span><span class="quote-card__loc">Koramangala</span></span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <section class="ds-sec" id="marquee">
+      <div class="ds-sec__head">
+        <span class="eyebrow">18 / Components</span>
+        <h2 class="t-d2" style="margin-top:var(--sp-sm)">Marquee</h2>
+        <p>A slow horizontal band used once per page as a palate cleanser between sections. Pauses on hover, and does not run at all under reduced motion.</p>
+      </div>
+      <div class="ds-stage ds-stage--flush">
+        <div class="marquee">
+          <div class="marquee__track">
+            <div class="marquee__item"><span>Modular Kitchens</span><i class="sq"></i><span>Wardrobes</span><i class="sq"></i><span>False Ceiling</span><i class="sq"></i><span>Complete Interiors</span><i class="sq"></i></div>
+            <div class="marquee__item" aria-hidden="true"><span>Modular Kitchens</span><i class="sq"></i><span>Wardrobes</span><i class="sq"></i><span>False Ceiling</span><i class="sq"></i><span>Complete Interiors</span><i class="sq"></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NAV ============ -->
+    <section class="ds-sec" id="nav">
+      <div class="ds-sec__head">
+        <span class="eyebrow">19 / Components</span>
+        <h2 class="t-d2" style="margin-top:var(--sp-sm)">Header &amp; menu</h2>
+        <p>The header is centred on the wordmark. Over a hero it is transparent with white type; once scrolled it becomes cream, shortens, and hides on scroll-down / reveals on scroll-up. Below 1100px the links collapse into a full-screen overlay.</p>
+      </div>
+      <div class="ds-block">
+        <h3 class="ds-block__t">Scrolled state</h3>
+        <div class="ds-stage ds-stage--flush">
+          <div style="background:var(--c-cream);border-bottom:var(--bw) solid var(--line-soft);padding:var(--sp-sm) var(--sp-md)">
+            <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:var(--sp-md)">
+              <nav class="nav" style="grid-column:1"><a href="#nav">Projects</a><a href="#nav">Services</a><a href="#nav" aria-current="page">Gallery</a></nav>
+              <div class="wordmark" style="grid-column:2;justify-self:center"><span class="wordmark__name">Anaya</span><span class="wordmark__sub">Interior Studio</span></div>
+              <div style="grid-column:3;justify-self:end"><a href="#nav" class="btn btn--sm"><span>Enquire</span></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ds-block">
+        <h3 class="ds-block__t">Over-hero state</h3>
+        <div class="ds-stage ds-stage--flush">
+          <div class="on-dark" style="background:var(--c-ink);padding:var(--sp-sm) var(--sp-md);color:var(--c-white)">
+            <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:var(--sp-md)">
+              <nav class="nav" style="grid-column:1"><a href="#nav">Projects</a><a href="#nav">Services</a><a href="#nav">Gallery</a></nav>
+              <div class="wordmark" style="grid-column:2;justify-self:center"><span class="wordmark__name">Anaya</span><span class="wordmark__sub">Interior Studio</span></div>
+              <div style="grid-column:3;justify-self:end"><a href="#nav" class="btn btn--sm btn--ghost"><span>Enquire</span></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <section class="ds-sec" id="footer">
+      <div class="ds-sec__head">
+        <span class="eyebrow">20 / Components</span>
+        <h2 class="t-d2" style="margin-top:var(--sp-sm)">Footer</h2>
+      </div>
+      <div class="ds-stage ds-stage--flush">
+        <footer class="ftr">
+          <div class="shell">
+            <div class="ftr__top">
+              <div>
+                <div class="wordmark" style="text-align:left"><span class="wordmark__name">Anaya</span><span class="wordmark__sub">Interior Studio</span></div>
+                <p class="t-small" style="margin-top:var(--sp-md);max-width:34ch">Turnkey residential interiors, designed and produced in-house since 2013.</p>
+                <div class="socials">
+                  <a href="#footer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+                  <a href="#footer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-2 0-3 1.3-3 3.2V11H9v3h2v7h3v-7h2.5l.5-3H14V9.6c0-.4.2-.6.6-.6z"/></svg></a>
+                  <a href="#footer" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-3.6 19.3c-.1-.8-.2-2 0-2.9l1.2-5s-.3-.6-.3-1.5c0-1.4.8-2.4 1.8-2.4.9 0 1.3.6 1.3 1.4 0 .9-.6 2.2-.9 3.4-.2 1 .5 1.9 1.5 1.9 1.9 0 3.2-2.4 3.2-5.2 0-2.2-1.4-3.8-4-3.8-2.9 0-4.7 2.2-4.7 4.6 0 .8.2 1.4.6 1.9.2.2.2.3.1.5l-.2.8c0 .3-.2.3-.5.2-1.3-.5-1.9-2-1.9-3.6 0-2.7 2.3-5.9 6.8-5.9 3.6 0 6 2.6 6 5.4 0 3.7-2 6.4-5 6.4-1 0-2-.5-2.3-1.2l-.6 2.4c-.2.8-.7 1.8-1.1 2.4A10 10 0 1012 2z"/></svg></a>
+                </div>
+              </div>
+              <div><h4>Explore</h4><ul class="ftr__list"><li><a href="#footer">Home</a></li><li><a href="#footer">About us</a></li><li><a href="#footer">Services</a></li><li><a href="#footer">Projects</a></li></ul></div>
+              <div><h4>Services</h4><ul class="ftr__list"><li><a href="#footer">Modular kitchen</a></li><li><a href="#footer">Wardrobes</a></li><li><a href="#footer">False ceiling</a></li><li><a href="#footer">Complete interiors</a></li></ul></div>
+              <div><h4>Studio</h4><ul class="ftr__list"><li><a href="#footer">+91 00000 00000</a></li><li><a href="#footer">hello@example.com</a></li><li><span>Mon-Sat, 10am-7pm</span></li></ul></div>
+            </div>
+            <div class="ftr__bot"><span>© 2026 Anaya Interiors</span><span>Placeholder content</span></div>
+          </div>
+        </footer>
+      </div>
+    </section>
+
+    <!-- ============ FLOAT ============ -->
+    <section class="ds-sec" id="float">
+      <div class="ds-sec__head">
+        <span class="eyebrow">21 / Components</span>
+        <h2 class="t-d2" style="margin-top:var(--sp-sm)">Floating actions</h2>
+        <p>The WhatsApp button slides up after the first viewport is passed. It is the only element in the system carrying a shadow at rest.</p>
+      </div>
+      <div class="ds-stage ds-stage--cream">
+        <span class="wa is-on" style="position:static;transform:none;display:inline-flex">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1112 20zm4.4-5.8c-.2-.1-1.4-.7-1.7-.8s-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 01-3.2-2.8c-.2-.3.1-.3.3-.6l.2-.4v-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 00-.7.3c-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6a9.5 9.5 0 003.7 3.3c1.4.5 1.7.4 2 .4.5 0 1.4-.6 1.6-1.1s.2-1 .1-1.1z"/></svg>
+          <span class="wa__txt">WhatsApp us</span>
+        </span>
+      </div>
+    </section>
+
+    <!-- ============ REVEAL ============ -->
+    <section class="ds-sec" id="motion-rv">
+      <div class="ds-sec__head">
+        <span class="eyebrow">22 / Practice</span>
+        <h2 class="t-d2" style="margin-top:var(--sp-sm)">Reveal patterns</h2>
+        <p>Three reveals, applied with <code>data-rv</code>. Images use a clip wipe; headings use a line-by-line mask; everything else fades up. Stagger with <code>--d</code>.</p>
+      </div>
+      <table class="ds-table">
+        <thead><tr><th>Attribute</th><th>Effect</th><th>Applied to</th></tr></thead>
+        <tbody>
+          <tr><td><code>data-rv="up"</code></td><td>Fade and rise 34px</td><td>Paragraphs, buttons, cards</td></tr>
+          <tr><td><code>data-rv="fade"</code></td><td>Opacity only</td><td>Meta rows, captions</td></tr>
+          <tr><td><code>data-rv="clip"</code></td><td>Clip wipe from the bottom</td><td>Images and media frames</td></tr>
+          <tr><td><code>.rv-lines</code></td><td>Per-line mask, each line rising</td><td>Display headings</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ============ A11Y ============ -->
+    <section class="ds-sec" id="a11y">
+      <div class="ds-sec__head">
+        <span class="eyebrow">23 / Practice</span>
+        <h2 class="t-d2" style="margin-top:var(--sp-sm)">Accessibility contract</h2>
+      </div>
+      <div class="ds-rules">
+        <div class="ds-rule ds-rule--do">
+          <h5>Guaranteed</h5>
+          <ul>
+            <li>Every text pairing in use meets WCAG AA (4.5:1), verified in the matrix above.</li>
+            <li>Focus is always visible: a 2px clay ring, offset 3px, which switches to white on dark grounds.</li>
+            <li>Interactive targets are at least 44×44px.</li>
+            <li>A skip link precedes the header on every page.</li>
+            <li>Reduced-motion users get the full layout with no animation and no hidden content.</li>
+            <li>Filter state is exposed through <code>aria-pressed</code>; form errors through <code>aria-invalid</code> and <code>aria-describedby</code>.</li>
+          </ul>
+        </div>
+        <div class="ds-rule ds-rule--dont">
+          <h5>Watch for</h5>
+          <ul>
+            <li>Text placed over photography needs its own scrim. The hero gradient exists for this reason.</li>
+            <li>Never use <code>--c-mocha</code> or <code>--c-sand</code> behind small text.</li>
+            <li>Colour alone must not carry meaning; pair it with text or an icon.</li>
+            <li>Decorative images take <code>alt=""</code>; meaningful ones describe the room, not the filename.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---- read tokens straight from the cascade so docs can't drift ---- */
+  var cs = getComputedStyle(document.documentElement);
+  function tok(n){ return cs.getPropertyValue(n).trim(); }
+
+  var PALETTE = [
+    {n:"Ink",        v:"--c-ink",      use:"Primary text, dark bands, footer"},
+    {n:"Bark",       v:"--c-ink-2",    use:"Lead paragraphs, secondary copy"},
+    {n:"Driftwood",  v:"--c-ink-3",    use:"Captions, meta, form labels"},
+    {n:"Clay",       v:"--c-mocha",    use:"FILL ONLY: squares, rules, accents"},
+    {n:"Clay / text",v:"--c-mocha-tx", use:"Eyebrows, links, numerals on light"},
+    {n:"Deep clay",  v:"--c-mocha-dp", use:"Brand band, accent buttons"},
+    {n:"Sand",       v:"--c-sand",     use:"FILL ONLY: decorative shapes"},
+    {n:"Light sand", v:"--c-sand-lt",  use:"Accent text on dark grounds"},
+    {n:"Stone",      v:"--c-stone",    use:"Sunken panels, image placeholder"},
+    {n:"Cream",      v:"--c-cream",    use:"Page ground"},
+    {n:"Paper",      v:"--c-paper",    use:"Raised panels, cards, forms"},
+    {n:"Warm white", v:"--c-white",    use:"Inputs, text on dark"}
+  ];
+
+  var sw = document.getElementById("swatches");
+  if (sw) {
+    sw.innerHTML = PALETTE.map(function(c){
+      var hex = tok(c.v);
+      return '<div class="ds-sw">'
+        + '<div class="ds-sw__chip" style="background:' + hex + '"></div>'
+        + '<div class="ds-sw__body">'
+        + '<div class="ds-sw__name">' + c.n + '</div>'
+        + '<div class="ds-sw__var">' + c.v + '</div>'
+        + '<div class="ds-sw__hex">' + hex + '</div>'
+        + '<div class="ds-sw__use">' + c.use + '</div>'
+        + '</div></div>';
+    }).join("");
+  }
+
+  /* ---- live contrast matrix ---- */
+  function rgb(h){
+    h = h.replace("#","");
+    if (h.length === 3) h = h[0]+h[0]+h[1]+h[1]+h[2]+h[2];
+    return [0,2,4].map(function(i){ return parseInt(h.substr(i,2),16); });
+  }
+  function lum(c){
+    var s = c.map(function(v){
+      v /= 255;
+      return v <= 0.03928 ? v/12.92 : Math.pow((v+0.055)/1.055, 2.4);
+    });
+    return 0.2126*s[0] + 0.7152*s[1] + 0.0722*s[2];
+  }
+  function ratio(a,b){
+    var l1 = lum(rgb(a)), l2 = lum(rgb(b));
+    var hi = Math.max(l1,l2), lo = Math.min(l1,l2);
+    return (hi+0.05)/(lo+0.05);
+  }
+
+  var PAIRS = [
+    ["--text","--surface","Body on cream"],
+    ["--text","--surface-raised","Body on paper"],
+    ["--text","--surface-sunken","Body on stone"],
+    ["--c-ink-2","--c-cream","Lead on cream"],
+    ["--c-ink-3","--c-cream","Caption on cream"],
+    ["--c-ink-3","--c-stone","Caption on stone"],
+    ["--c-mocha-tx","--c-cream","Eyebrow on cream"],
+    ["--c-mocha-tx","--c-paper","Eyebrow on paper"],
+    ["--c-mocha-tx","--c-stone","Eyebrow on stone"],
+    ["--c-white","--c-mocha-dp","White on clay band"],
+    ["--c-sand-lt","--c-mocha-dp","Accent on clay band"],
+    ["--c-white","--c-ink","White on ink"],
+    ["--c-sand-lt","--c-ink","Accent on ink"]
+  ];
+
+  var tb = document.querySelector("#contrast-table tbody");
+  if (tb) {
+    tb.innerHTML = PAIRS.map(function(p){
+      var fg = tok(p[0]), bg = tok(p[1]);
+      var r = ratio(fg,bg);
+      var pass = r >= 4.5;
+      var grade = r >= 7 ? "AAA" : (pass ? "AA" : "Fails AA");
+      return "<tr>"
+        + "<td>" + p[2] + "</td>"
+        + "<td><code>" + p[1] + "</code></td>"
+        + "<td>" + r.toFixed(2) + ":1</td>"
+        + '<td class="' + (pass ? "ds-pass" : "ds-fail") + '">' + grade + "</td>"
+        + '<td><span class="ds-specimen-cell" style="background:' + bg + ';color:' + fg + ';display:inline-block">Specimen</span></td>'
+        + "</tr>";
+    }).join("");
+  }
+
+  /* ---- spacing scale ---- */
+  var STEPS = ["3xs","2xs","xs","sm","md","lg","xl","2xl","3xl","4xl"];
+  var sc = document.getElementById("scale");
+  if (sc) {
+    sc.innerHTML = STEPS.map(function(s){
+      var val = tok("--sp-" + s);
+      var px = parseFloat(val) * 16;
+      return '<div class="ds-scale__row">'
+        + "<span>--sp-" + s + "</span>"
+        + "<span>" + px + "px</span>"
+        + '<span class="ds-scale__bar" style="width:' + Math.min(px,520) + 'px"></span>'
+        + "</div>";
+    }).join("");
+  }
+
+  /* ---- service-row cursor preview (demo of the real behaviour) ---- */
+  var rows = Array.prototype.slice.call(document.querySelectorAll(".srow[data-preview]"));
+  if (rows.length && window.matchMedia("(hover:hover) and (min-width:900px)").matches) {
+    var pv = document.createElement("div");
+    pv.className = "srow-preview";
+    pv.innerHTML = rows.map(function(r){
+      return '<img src="' + r.dataset.preview + '" alt="" loading="lazy">';
+    }).join("");
+    document.body.appendChild(pv);
+    var imgs = pv.querySelectorAll("img");
+    var tx = 0, ty = 0, cx = 0, cy = 0, raf = null;
+
+    function loop(){
+      cx += (tx - cx) * 0.14;
+      cy += (ty - cy) * 0.14;
+      pv.style.transform = "translate(" + cx + "px," + cy + "px) translate(-50%,-50%) scale(1)";
+      raf = requestAnimationFrame(loop);
+    }
+    rows.forEach(function(r,i){
+      r.addEventListener("mouseenter", function(){
+        for (var k = 0; k < imgs.length; k++) imgs[k].classList.toggle("is-active", k === i);
+        pv.classList.add("is-on");
+        if (!raf) raf = requestAnimationFrame(loop);
+      });
+      r.addEventListener("mouseleave", function(){
+        pv.classList.remove("is-on");
+      });
+    });
+    document.addEventListener("mousemove", function(e){ tx = e.clientX; ty = e.clientY; });
+  }
+})();
+</script>
+</body>
+</html>
