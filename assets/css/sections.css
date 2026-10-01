@@ -95,6 +95,8 @@
   display:flex; flex-wrap:wrap; gap:var(--sp-2xs); align-items:center;
   font-size:var(--fs-micro); letter-spacing:.17em; text-transform:uppercase; color:var(--text-muted);
 }
+.crumbs a{ display:inline-block; padding-block:.4rem; }
+@media (pointer:coarse){ .crumbs a{ padding-block:.62rem; } }
 .crumbs a:hover{ color:var(--text); }
 .phead--media .crumbs{ color:rgba(255,253,249,.7); }
 .phead--media .crumbs a:hover{ color:var(--c-white); }
@@ -190,6 +192,8 @@
 .cta__contact span{ display:block; margin-bottom:var(--sp-3xs); font-size:var(--fs-micro);
   letter-spacing:var(--ls-label); text-transform:uppercase; color:var(--c-sand-lt); }
 .cta__contact a,.cta__contact p{ font-family:var(--font-display); font-size:clamp(1.05rem,1.5vw,1.3rem); }
+.cta__contact a{ display:inline-block; padding-block:.4rem; }
+@media (pointer:coarse){ .cta__contact a{ padding-block:.62rem; } }
 
 /* ---------- 8. Service detail blocks (services page) --------------------- */
 
@@ -367,6 +371,8 @@
 .cblock span{ display:block; margin-bottom:var(--sp-3xs); font-size:var(--fs-micro);
   letter-spacing:var(--ls-label); text-transform:uppercase; color:var(--text-muted); }
 .cblock a,.cblock p{ font-family:var(--font-display); font-size:clamp(1.1rem,1.6vw,1.35rem); line-height:1.5; }
+.cblock a{ display:inline-block; padding-block:.4rem; }
+@media (pointer:coarse){ .cblock a{ padding-block:.62rem; } }
 .cblock a:hover{ color:var(--text-accent); }
 
 .map{ position:relative; width:100%; aspect-ratio:16/9; background:var(--surface-sunken);

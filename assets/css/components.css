@@ -64,7 +64,7 @@
 
 .link{
   position:relative; display:inline-flex; align-items:center; gap:var(--sp-2xs);
-  padding-bottom:.42rem;
+  padding-top:.5rem; padding-bottom:.42rem;
   font-size:var(--fs-micro); font-weight:var(--fw-med);
   letter-spacing:var(--ls-label); text-transform:uppercase;
 }
@@ -149,6 +149,25 @@
 .frame--bordered{ border:var(--bw) solid var(--line); }
 .zoom img{ transition:transform 1.25s var(--ease); }
 .zoom:hover img{ transform:scale(1.055); }
+
+/* Fixed-background image box. The photograph is locked to the viewport, so
+   the box reads as a window onto a still image rather than a pasted picture. */
+.fiximg{
+  position:relative; overflow:hidden;
+  aspect-ratio:var(--ar-square); background:var(--surface-sunken);
+}
+.fiximg--portrait{ aspect-ratio:var(--ar-portrait); }
+.fiximg--landscape{ aspect-ratio:var(--ar-landscape); }
+.fiximg__bg{
+  position:absolute; inset:0;
+  background-repeat:no-repeat; background-size:cover; background-position:center;
+  background-attachment:fixed;
+  filter:saturate(.84) contrast(1.03) sepia(.08) brightness(1.01);
+}
+/* Touch devices and iOS handle fixed attachment badly; fall back cleanly. */
+@media (hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){
+  .fiximg__bg{ background-attachment:scroll; }
+}
 
 /* Caption under media */
 .caption{
@@ -380,14 +399,14 @@
 .check{ display:flex; align-items:flex-start; gap:var(--sp-2xs); cursor:pointer;
   font-size:var(--fs-small); color:var(--c-ink-2); }
 .check input{
-  appearance:none; width:18px; height:18px; flex:none; margin-top:.2rem;
+  appearance:none; width:24px; height:24px; flex:none; margin-top:.05rem;
   border:var(--bw) solid var(--line-strong); background:var(--c-white);
   display:grid; place-items:center; cursor:pointer;
   transition:background-color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
 }
 .check input:checked{ background:var(--c-ink); border-color:var(--c-ink); }
 .check input:checked::after{
-  content:""; width:8px; height:8px; background:var(--c-white);
+  content:""; width:10px; height:10px; background:var(--c-white);
 }
 .check input:focus-visible{ outline:var(--bw-2) solid var(--focus-ring); outline-offset:2px; }
 
@@ -419,13 +438,17 @@
 .hdr .wordmark{ grid-column:2; justify-self:center; }
 .nav{ display:flex; align-items:center; gap:2.2rem; }
 .nav--end{ grid-column:3; justify-self:end; }
+/* --pad grows the hit area; the underline offsets by the same amount so it
+   stays tight under the text instead of drifting to the padding edge. */
 .nav a{
-  position:relative; padding-block:var(--sp-3xs);
+  --pad:.8rem;
+  position:relative; display:inline-block; padding-block:var(--pad);
   font-size:var(--fs-micro); font-weight:var(--fw-med);
   letter-spacing:.17em; text-transform:uppercase;
 }
+@media (pointer:coarse){ .nav a{ --pad:1.15rem; } }
 .nav a::after{
-  content:""; position:absolute; left:0; bottom:0; width:100%; height:var(--bw);
+  content:""; position:absolute; left:0; bottom:var(--pad); width:100%; height:var(--bw);
   background:currentColor; transform:scaleX(0); transform-origin:left;
   transition:transform var(--dur-mid) var(--ease);
 }
@@ -501,8 +524,12 @@
   margin-bottom:var(--sp-md); font-size:var(--fs-micro); font-weight:var(--fw-med);
   letter-spacing:var(--ls-eyebrow); text-transform:uppercase; color:var(--c-sand-lt);
 }
-.ftr__list li + li{ margin-top:var(--sp-xs); }
-.ftr__list a{ font-size:.9rem; transition:color var(--dur-fast) var(--ease); }
+.ftr__list li + li{ margin-top:var(--sp-3xs); }
+.ftr__list a{
+  display:inline-block; padding-block:.46rem;
+  font-size:.9rem; transition:color var(--dur-fast) var(--ease);
+}
+@media (pointer:coarse){ .ftr__list a{ padding-block:.72rem; } }
 .ftr__list a:hover{ color:var(--c-white); }
 .ftr__bot{
   padding-block:var(--sp-md); display:flex; flex-wrap:wrap; gap:var(--sp-sm) var(--sp-lg);

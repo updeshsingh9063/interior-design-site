@@ -777,7 +777,7 @@
           <ul>
             <li>Every text pairing in use meets WCAG AA (4.5:1), verified in the matrix above.</li>
             <li>Focus is always visible: a 2px clay ring, offset 3px, which switches to white on dark grounds.</li>
-            <li>Interactive targets are at least 44×44px.</li>
+            <li>Buttons, chips and icon buttons are at least 44px tall, and 54px at default size. Inline links in dense lists (navigation, footer, breadcrumbs) carry padding to clear the 24px WCAG minimum, and expand to 44px on coarse pointers via <code>@media (pointer:coarse)</code>.</li>
             <li>A skip link precedes the header on every page.</li>
             <li>Reduced-motion users get the full layout with no animation and no hidden content.</li>
             <li>Filter state is exposed through <code>aria-pressed</code>; form errors through <code>aria-invalid</code> and <code>aria-describedby</code>.</li>
