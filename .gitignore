@@ -13,3 +13,6 @@ node_modules/
 
 # Design reference, not part of the site
 site design/
+
+# Client source photography and video, kept out of the deploy (102MB)
+images by client/

@@ -72,8 +72,18 @@ GitHub Pages all serve it as-is with no build command and no output directory.
   placeholders throughout.
 - Wire the enquiry forms to a mail handler or CRM. They currently validate in
   the browser and confirm in place without sending anywhere.
-- Replace the two "before" frames on the Projects page with real
-  handover-condition photographs. The current ones are different rooms and are
-  labelled as placeholders in the page.
-- Swap the stock photography for the studio's own project images. See
-  `CREDITS.md` for the source of each file.
+- The photography is now the studio's own project work. Source PNGs live in
+  `images by client/`, which is excluded from git and from the deploy. See
+  `CREDITS.md` for the slot-to-source mapping and the conversion settings.
+- The before and after slider on the Projects page is not yet genuine. The
+  supplied set contains one mid-build photograph and no matched pairs, so the
+  two comparisons show different rooms at different angles. Either supply a
+  before and an after of the same room from the same position, or remove the
+  section.
+- Four walkthrough videos were supplied and are not used. They are vertical
+  phone recordings, 576x1024 and 63 to 97 seconds, roughly 46MB in total.
+  Serving them unprocessed would cost more than the rest of the site combined,
+  so they need compressing and probably trimming, or hosting on YouTube and
+  embedding, before they go anywhere near a page.
+- Project names, floor areas, locations and years are still invented
+  placeholders. The images are now real but the captions around them are not.
