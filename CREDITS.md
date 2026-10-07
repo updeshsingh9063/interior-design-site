@@ -56,8 +56,26 @@ because it was the calmest wide frame in the set.
 | gal-tv-02.jpg | image copy 50.png | Wood panelled TV wall in an open living room |
 | det-vignette-01.jpg | image copy 27.png | Pendant lights over a kitchen counter |
 | det-vignette-02.jpg | image copy 28.png | Pendant lights above a breakfast counter |
-| before-kitchen.jpg | image copy 24.png | Kitchen during fit out |
-| before-living.jpg | image copy 25.png | Room before fit out |
+
+## Stock images still in use
+
+Two slots are not the studio's own work:
+
+| Slot | Source | Why |
+| --- | --- | --- |
+| before-kitchen.jpg | Pexels | No pre-work photograph was supplied |
+| before-living.jpg | Pexels | No pre-work photograph was supplied |
+
+These are the two "before" frames in the comparison slider on the Projects
+page. The client set contained no pre-work photography and no matched pairs,
+so stock stands in for now. Both are from Pexels, whose licence permits
+commercial use without attribution; the specific photo ids were not recorded
+when they were first added.
+
+The page carries a visible note saying these frames are stock. Keep that note
+until the frames are replaced, or remove the section. A before and after
+comparison is a claim about a specific project, and it only holds up when both
+frames are the same room shot from the same position.
 
 ## Not used
 
